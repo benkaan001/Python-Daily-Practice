@@ -1,0 +1,13 @@
+# Testing
+pytest
+pytest-cov
+
+# Code Formatting & Linting
+black
+flake8
+
+# Git Hooks
+pre-commit
+
+# Interactive Practice
+jupyter
