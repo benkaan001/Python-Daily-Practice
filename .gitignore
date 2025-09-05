@@ -78,6 +78,6 @@ venv.bak/
 .vscode/
 
 # Private documentation
-docs/
+docs/project.md
 *_dev.ipynb
 *_dev.py
