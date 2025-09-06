@@ -12,11 +12,19 @@ from solution.day_001 import (
     two_sum as solution_two_sum,
 )
 
-# Use pytest.mark.parametrize to create a list of functions to test
-functions_to_test_create = [practice_create, solution_create]
+# --- Test Cases for Exercise 1: Profile Modification ---
+
+# Use pytest.param to mark the practice function with xfail
+create_params = [
+    pytest.param(
+        practice_create,
+        marks=pytest.mark.xfail(reason="Practice file is intentionally empty"),
+    ),
+    pytest.param(solution_create),
+]
 
 
-@pytest.mark.parametrize("function_to_test", functions_to_test_create)
+@pytest.mark.parametrize("function_to_test", create_params)
 def test_create_and_modify_profile(function_to_test):
     """
     Tests the basic creation, update, and deletion of profile entries.
@@ -43,7 +51,7 @@ def test_create_and_modify_profile(function_to_test):
     assert modified_profile == profile
 
 
-@pytest.mark.parametrize("function_to_test", functions_to_test_create)
+@pytest.mark.parametrize("function_to_test", create_params)
 def test_profile_immutability(function_to_test):
     """
     Tests that the original profile dictionary is NEVER modified.
@@ -60,11 +68,17 @@ def test_profile_immutability(function_to_test):
     assert original_profile == original_profile_copy
 
 
-# Parametrize for the word frequency counter function
-functions_to_test_count = [practice_count, solution_count]
+# --- Test Cases for Exercise 2: Word Frequency ---
+count_params = [
+    pytest.param(
+        practice_count,
+        marks=pytest.mark.xfail(reason="Practice file is intentionally empty"),
+    ),
+    pytest.param(solution_count),
+]
 
 
-@pytest.mark.parametrize("function_to_test", functions_to_test_count)
+@pytest.mark.parametrize("function_to_test", count_params)
 def test_count_word_frequency(function_to_test):
     """
     Tests the word frequency counting logic.
@@ -90,11 +104,17 @@ def test_count_word_frequency(function_to_test):
     assert function_to_test(empty_sentence) == {}
 
 
-# Parametrize for the two_sum function
-functions_to_test_two_sum = [practice_two_sum, solution_two_sum]
+# --- Test Cases for Exercise 3: Two Sum ---
+two_sum_params = [
+    pytest.param(
+        practice_two_sum,
+        marks=pytest.mark.xfail(reason="Practice file is intentionally empty"),
+    ),
+    pytest.param(solution_two_sum),
+]
 
 
-@pytest.mark.parametrize("function_to_test", functions_to_test_two_sum)
+@pytest.mark.parametrize("function_to_test", two_sum_params)
 def test_two_sum(function_to_test):
     """
     Tests the two_sum logic with various scenarios.
