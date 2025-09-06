@@ -1,24 +1,32 @@
-from typing import Dict, Any, List, Optional
+from typing import Dict, List, Optional
 import re
 
 
-def create_and_modify_profile(profile: Dict[str, Any]) -> Dict[str, Any]:
+def create_and_modify_profile(profile, action, key, value=None):
     """
-    Modifies a user profile dictionary by adding, updating, and removing keys.
-    This implementation modifies a copy to avoid side effects.
+    Exercise 1: Modify a user profile dictionary.
+    - 'add': Add a new key-value pair.
+    - 'update': Update an existing key.
+    - 'delete': Remove a key.
+
+    IMPORTANT: This function should be 'immutable'. It must return a new,
+    modified copy of the dictionary and leave the original unchanged.
     """
-    modified_profile = profile.copy()
+    # Create a new copy to ensure the original is not modified.
+    new_profile = profile.copy()
 
-    # Add a new key
-    modified_profile["country"] = "USA"
+    if action == "add":
+        if key not in new_profile:
+            new_profile[key] = value
+    elif action == "update":
+        if key in new_profile:
+            new_profile[key] = value
+    elif action == "delete":
+        if key in new_profile:
+            del new_profile[key]
 
-    # Update an existing key
-    modified_profile["city"] = "New York"
-
-    # Remove a key, using .pop() for safety (doesn't error if key is missing)
-    modified_profile.pop("email", None)
-
-    return modified_profile
+    # Return the modified copy, or the original copy if action was invalid
+    return new_profile
 
 
 def count_word_frequency(sentence: str) -> Dict[str, int]:

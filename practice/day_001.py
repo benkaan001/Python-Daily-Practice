@@ -1,27 +1,30 @@
-from typing import Dict, Any, List, Optional
-
-
-def create_and_modify_profile(profile: Dict[str, Any]) -> Dict[str, Any]:
+def create_and_modify_profile(profile, action, key, value=None):
     """
-    Modifies a user profile dictionary by adding, updating, and removing keys.
+    Exercise 1: Modify a user profile dictionary.
+    - 'add': Add a new key-value pair.
+    - 'update': Update an existing key.
+    - 'delete': Remove a key.
+
+    IMPORTANT: This function should be 'immutable'. It must return a new,
+    modified copy of the dictionary and leave the original unchanged.
     """
-    # Your implementation for Exercise 1 goes here
+    # Your code here
     pass
 
 
-def count_word_frequency(sentence: str) -> Dict[str, int]:
+def count_word_frequency(sentence):
     """
-    Counts the frequency of words in a sentence, case-insensitively,
-    and ignoring punctuation.
+    Exercise 2: Count the frequency of words in a sentence.
+    The counting should be case-insensitive.
     """
-    # Your implementation for Exercise 2 goes here
+    # Your code here
     pass
 
 
-def two_sum(nums: List[int], target: int) -> Optional[List[int]]:
+def two_sum(nums, target):
     """
-    Finds two numbers in a list that sum up to a specific target and
-    returns their indices. Returns None if no solution is found.
+    Exercise 3: Find two numbers in a list that add up to a target.
+    Return the indices of the two numbers.
     """
-    # Your implementation for Exercise 3 goes here
+    # Your code here
     pass

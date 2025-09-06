@@ -13,11 +13,10 @@ from solution.day_001 import (
 )
 
 # Use pytest.mark.parametrize to create a list of functions to test
-# This allows us to run the same tests on both the practice and solution code
-functions_to_test = [practice_create, solution_create]
+functions_to_test_create = [practice_create, solution_create]
 
 
-@pytest.mark.parametrize("function_to_test", functions_to_test)
+@pytest.mark.parametrize("function_to_test", functions_to_test_create)
 def test_create_and_modify_profile(function_to_test):
     """
     Tests the basic creation, update, and deletion of profile entries.
@@ -41,7 +40,24 @@ def test_create_and_modify_profile(function_to_test):
     modified_profile = function_to_test(
         profile, "invalid_action", "key", "value"
     )
-    assert modified_profile == profile  # Profile should be unchanged
+    assert modified_profile == profile
+
+
+@pytest.mark.parametrize("function_to_test", functions_to_test_create)
+def test_profile_immutability(function_to_test):
+    """
+    Tests that the original profile dictionary is NEVER modified.
+    """
+    original_profile = {"city": "Chiang Mai", "weather": "sunny"}
+    original_profile_copy = original_profile.copy()
+
+    # Perform all actions
+    function_to_test(original_profile, "add", "food", "khao soi")
+    function_to_test(original_profile, "update", "city", "Bangkok")
+    function_to_test(original_profile, "delete", "weather")
+
+    # Assert that the original dictionary remains unchanged
+    assert original_profile == original_profile_copy
 
 
 # Parametrize for the word frequency counter function
