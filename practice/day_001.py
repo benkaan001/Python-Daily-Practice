@@ -1,30 +1,42 @@
-def create_and_modify_profile(profile, action, key, value=None):
-    """
-    Exercise 1: Modify a user profile dictionary.
-    - 'add': Add a new key-value pair.
-    - 'update': Update an existing key.
-    - 'delete': Remove a key.
+from typing import Any, Dict, List, Optional
 
-    IMPORTANT: This function should be 'immutable'. It must return a new,
-    modified copy of the dictionary and leave the original unchanged.
-    """
-    # Your code here
-    pass
+# --- Exercise 1: Dictionary Manipulation ---
 
 
-def count_word_frequency(sentence):
+def create_and_modify_profile(
+    profile: Dict[str, Any], action: str, key: str, value: Optional[Any] = None
+) -> Dict[str, Any]:
     """
-    Exercise 2: Count the frequency of words in a sentence.
-    The counting should be case-insensitive.
+    Takes a user profile dictionary and performs an action.
+    - "add": Adds a new key-value pair.
+    - "update": Updates an existing key.
+    - "delete": Removes a key.
+    Returns a new, modified copy, leaving the original unchanged.
     """
     # Your code here
     pass
 
 
-def two_sum(nums, target):
+# --- Exercise 2: Word Frequency ---
+
+
+def count_word_frequency(sentence: str) -> Dict[str, int]:
     """
-    Exercise 3: Find two numbers in a list that add up to a target.
-    Return the indices of the two numbers.
+    Counts the frequency of words in a sentence.
+    The function should be case-insensitive and ignore all punctuation.
+    """
+    # Your code here
+    pass
+
+
+# --- Exercise 3: Two Sum ---
+
+
+def two_sum(nums: List[int], target: int) -> Optional[List[int]]:
+    """
+    Finds two numbers in a list that add up to a specific target.
+    Returns a list containing the indices of the two numbers.
+    If no two numbers add up to the target, returns None.
     """
     # Your code here
     pass
